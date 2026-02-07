@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tether USD | Official Token Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f7f6; color: #333; padding: 50px; }
+        .container { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: inline-block; max-width: 600px; }
+        .logo { width: 100px; height: 100px; margin-bottom: 20px; }
+        h1 { color: #26a17b; }
+        .address { background: #eee; padding: 10px; border-radius: 5px; font-family: monospace; word-break: break-all; margin: 20px 0; }
+        .btn { background: #26a17b; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; }
+        .details { text-align: left; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="USDT Logo" class="logo"> <h1>Tether USD (USDT)</h1>
+        <p>Official BEP-20 Token on Binance Smart Chain</p>
+        
+        <div class="address" id="contract">0x12e08813cE3C9d556d309DE4062342ECFfcB2D45</div>
+        
+        <div class="details">
+            <p><strong>Total Supply:</strong> 1,500,000,000 USDT</p>
+            <p><strong>Network:</strong> Binance Smart Chain (BEP20)</p>
+            <p><strong>Decimals:</strong> 18</p>
+        </div>
+
+        <a href="https://pancakeswap.finance/swap?outputCurrency=0x12e08813cE3C9d556d309DE4062342ECFfcB2D45" class="btn" target="_blank">Trade on PancakeSwap</a>
+    </div>
+</body>
+</html>
