@@ -1,10 +1,10 @@
 {
   "name": "Tether USD",
   "symbol": "USDT",
-  "contractAddress": "0x12e08813cE3C9d556d309DE4062342ECFfcB2D45",
+  "contractAddress": "0xa5b540c22827718531eC1BA0277639238aF4F8bB",
   "totalSupply": "1500000000",
   "decimals": 18,
-  "website": "https://abir1987.github.io/tether-USD/",
+  "website": "https://abir1987.github.io/Tether-USDT/",
   "description": "Tether USD (USDT) is a decentralized token on the Binance Smart Chain providing liquidity and stable valuation for users.",
   "socials": {
     "github": "https://github.com/abir1987"
